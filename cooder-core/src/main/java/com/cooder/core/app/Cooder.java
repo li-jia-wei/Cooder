@@ -20,7 +20,7 @@ public class Cooder {
 	}
 	
 	// 获取配置信息
-	private static HashMap<String, Object> getConfigurator() {
+	public static HashMap<String, Object> getConfigurator() {
 		return Configurator.getInstance().getCooderConfigs();
 	}
 	
