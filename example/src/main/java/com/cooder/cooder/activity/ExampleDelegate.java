@@ -5,6 +5,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import com.cooder.cooder.R;
 import com.cooder.core.delegate.CooderDelegate;
+import com.cooder.core.net.RestClient;
 
 /**
  * 项目名称：Cooder
@@ -23,5 +24,18 @@ public class ExampleDelegate extends CooderDelegate {
 	@Override
 	public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
 	
+	}
+	
+	private void testRestClient() {
+		RestClient.builder()
+				.url("")
+				.params("", "")
+				.success(response -> {
+				
+				}).failure(() -> {
+				
+				}).error((code, msg) -> {
+				
+				}).build();
 	}
 }
