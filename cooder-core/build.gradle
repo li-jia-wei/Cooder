@@ -30,8 +30,9 @@ android {
 }
 
 dependencies {
-
-	// 项目基础库
+	// jar包
+	api fileTree(dir: 'libs', include: ['*.jar'])
+	// 项目初始依赖
 	api 'androidx.appcompat:appcompat:1.4.1'
 	api 'com.google.android.material:material:1.4.0'
 	testImplementation 'junit:junit:4.13.2'
@@ -48,4 +49,6 @@ dependencies {
 	// ButterKnife依赖
 	api 'com.jakewharton:butterknife:10.2.3'
 	annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+	// Retrofit网络请求框架
+//	api 'com.squareup.retrofit2:retrofit:1.1.1'
 }
