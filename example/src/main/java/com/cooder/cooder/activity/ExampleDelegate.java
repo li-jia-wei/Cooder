@@ -26,6 +26,7 @@ public class ExampleDelegate extends CooderDelegate {
 	
 	}
 	
+	// 测试代码
 	private void testRestClient() {
 		RestClient.builder()
 				.url("")

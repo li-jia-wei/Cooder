@@ -5,6 +5,7 @@ import com.cooder.core.net.callback.IFailure;
 import com.cooder.core.net.callback.IRequest;
 import com.cooder.core.net.callback.ISuccess;
 import okhttp3.RequestBody;
+import retrofit2.Call;
 
 import java.util.Map;
 
@@ -37,5 +38,34 @@ public class RestClient {
 	
 	public static RestClientBuilder builder() {
 		return new RestClientBuilder();
+	}
+	
+	private void request(HttpMethod method) {
+		final RestService service = RestCreator.getRestService();
+		Call<String> call = null;
+		if (REQUEST != null) {
+			REQUEST.onRequestStart();
+		}
+		switch (method) {
+			case GET:
+				call = service.get(URL, PARAMS);
+				break;
+			case POST:
+				call = service.post(URL, PARAMS);
+				break;
+			case PUT:
+				call = service.put(URL, PARAMS);
+				break;
+			case DELETE:
+				call = service.delete(URL, PARAMS);
+				break;
+			default:
+				break;
+		}
+		
+		if (call != null) {
+			// 会在后台执行，不会印象UI主进程
+//			call.enqueue();
+		}
 	}
 }
