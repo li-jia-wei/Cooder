@@ -2,10 +2,12 @@ package com.cooder.cooder.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 import androidx.annotation.Nullable;
 import com.cooder.cooder.R;
 import com.cooder.core.delegate.CooderDelegate;
 import com.cooder.core.net.RestClient;
+import com.cooder.core.util.L;
 
 /**
  * 项目名称：Cooder
@@ -23,20 +25,21 @@ public class ExampleDelegate extends CooderDelegate {
 	
 	@Override
 	public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-	
+		testRestClient();
 	}
 	
 	// 测试代码
 	private void testRestClient() {
 		RestClient.builder()
-				.url("")
-				.params("", "")
-				.success(response -> {
+				.url("http://news.baidu.com/")
+				.success(L::i)
+				.failure(() -> {
 				
-				}).failure(() -> {
-				
-				}).error((code, msg) -> {
-				
-				}).build();
+				})
+				.error((code, msg) -> {
+					Toast.makeText(getContext(), code + " : " + msg, Toast.LENGTH_LONG).show();
+				})
+				.build()
+				.get();
 	}
 }

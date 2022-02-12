@@ -1,11 +1,9 @@
 package com.cooder.core.net;
 
-import com.cooder.core.net.callback.IError;
-import com.cooder.core.net.callback.IFailure;
-import com.cooder.core.net.callback.IRequest;
-import com.cooder.core.net.callback.ISuccess;
+import com.cooder.core.net.callback.*;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.Callback;
 
 import java.util.Map;
 
@@ -65,7 +63,28 @@ public class RestClient {
 		
 		if (call != null) {
 			// 会在后台执行，不会印象UI主进程
-//			call.enqueue();
+			call.enqueue(getRequestCallback());
 		}
+	}
+	
+	// 获取请求回调
+	private Callback<String> getRequestCallback() {
+		return new RequestCallbacks(REQUEST, SUCCESS, FAILURE, ERROR);
+	}
+	
+	public final void get() {
+		request(HttpMethod.GET);
+	}
+	
+	public final void post() {
+		request(HttpMethod.POST);
+	}
+	
+	public final void put() {
+		request(HttpMethod.PUT);
+	}
+	
+	public final void delete() {
+		request(HttpMethod.DELETE);
 	}
 }
