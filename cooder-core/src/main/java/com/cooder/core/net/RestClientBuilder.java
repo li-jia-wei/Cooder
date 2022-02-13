@@ -10,6 +10,7 @@ import com.cooder.core.ui.LoaderStyle;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
+import java.io.File;
 import java.util.Map;
 
 /**
@@ -21,83 +22,87 @@ import java.util.Map;
 
 public class RestClientBuilder {
 	
-	private String mUrl = null;
-	private static final Map<String, Object> PARAMS = RestCreator.getParams();
-	private IRequest mIRequest = null;
-	private ISuccess mISuccess = null;
-	private IFailure mIFailure = null;
-	private IError mIError = null;
-	private RequestBody mBody = null;
-	private LoaderStyle mLoaderStyle = null;
-	private Context mContext = null;
+	private final RestData RESTDATA;
 	
 	RestClientBuilder() {
-	
+		this.RESTDATA = new RestData();
 	}
 	
 	// 设置url
 	public final RestClientBuilder url(String url) {
-		this.mUrl = url;
+		this.RESTDATA.setURL(url);
 		return this;
 	}
 	
 	// 设置参数
 	public final RestClientBuilder params(Map<String, Object> params) {
-		PARAMS.putAll(params);
+		RestData.setPARAMS(params);
 		return this;
 	}
 	
 	// 设置参数
 	public final RestClientBuilder params(String key, Object value) {
-		PARAMS.put(key, value);
+		RestData.setPARAMS(key, value);
+		return this;
+	}
+	
+	// 上传文件
+	public final RestClientBuilder file(File file) {
+		this.RESTDATA.setFILE(file);
+		return this;
+	}
+	
+	public final RestClientBuilder file(String url) {
+		this.RESTDATA.setFILE(new File(url));
 		return this;
 	}
 	
 	// 设置raw
 	@SuppressWarnings("deprecation")
 	public final RestClientBuilder raw(String raw) {
-		this.mBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), raw);
+		RequestBody requestBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), raw);
+		this.RESTDATA.setBODY(requestBody);
 		return this;
 	}
 	
 	// 请求回调
 	public final RestClientBuilder onRequest(IRequest iRequest) {
-		this.mIRequest = iRequest;
+		this.RESTDATA.setREQUEST(iRequest);
 		return this;
 	}
 	
 	// 请求成功回调
 	public final RestClientBuilder success(ISuccess iSuccess) {
-		this.mISuccess = iSuccess;
+		this.RESTDATA.setSUCCESS(iSuccess);
 		return this;
 	}
 	
 	// 请求失败回调
 	public final RestClientBuilder failure(IFailure iFailure) {
-		this.mIFailure = iFailure;
+		this.RESTDATA.setFAILURE(iFailure);
 		return this;
 	}
 	
 	// 请求报错回调
 	public final RestClientBuilder error(IError iError) {
-		this.mIError = iError;
+		this.RESTDATA.setERROR(iError);
 		return this;
 	}
 	
 	// 设置加载
 	public final RestClientBuilder loader(Context context, LoaderStyle loaderStyle) {
-		this.mContext = context;
-		this.mLoaderStyle = loaderStyle;
+		this.RESTDATA.setCONTEXT(context);
+		this.RESTDATA.setLOADER_STYLE(loaderStyle);
 		return this;
 	}
 	
 	public final RestClientBuilder loader(Context context) {
-		this.mContext = context;
-		this.mLoaderStyle = CooderLoader.DEFAULT_LOADER;
+		this.RESTDATA.setCONTEXT(context);
+		this.RESTDATA.setLOADER_STYLE(CooderLoader.DEFAULT_LOADER);
 		return this;
 	}
 	
 	public final RestClient build() {
-		return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody, mLoaderStyle, mContext);
+		return new RestClient(RESTDATA);
 	}
 }

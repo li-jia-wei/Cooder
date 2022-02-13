@@ -4,10 +4,13 @@ import android.content.Context;
 import com.cooder.core.net.callback.*;
 import com.cooder.core.ui.CooderLoader;
 import com.cooder.core.ui.LoaderStyle;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 
+import java.io.File;
 import java.util.Map;
 
 /**
@@ -20,33 +23,27 @@ import java.util.Map;
 public class RestClient {
 	
 	private final String URL;
-	private static final Map<String, Object> PARAMS = RestCreator.getParams();
+	private static final Map<String, Object> PARAMS = RestData.getPARAMS();
 	private final IRequest REQUEST;
 	private final ISuccess SUCCESS;
 	private final IFailure FAILURE;
 	private final IError ERROR;
 	private final RequestBody BODY;
 	private final LoaderStyle LOADER_STYLE;
+	private final File FILE;
 	private final Context CONTEXT;
 	
-	public RestClient(String url,
-	                  Map<String, Object> params,
-	                  IRequest request,
-	                  ISuccess success,
-	                  IFailure failure,
-	                  IError error,
-	                  RequestBody body,
-	                  LoaderStyle loaderStyle,
-	                  Context context) {
-		this.URL = url;
-		PARAMS.putAll(params);
-		this.REQUEST = request;
-		this.SUCCESS = success;
-		this.FAILURE = failure;
-		this.ERROR = error;
-		this.BODY = body;
-		this.LOADER_STYLE = loaderStyle;
-		this.CONTEXT = context;
+	public RestClient(RestData data) {
+		this.URL = data.getURL();
+		PARAMS.putAll(RestData.getPARAMS());
+		this.REQUEST = data.getREQUEST();
+		this.SUCCESS = data.getSUCCESS();
+		this.FAILURE = data.getFAILURE();
+		this.ERROR = data.getERROR();
+		this.BODY = data.getBODY();
+		this.FILE = data.getFILE();
+		this.LOADER_STYLE = data.getLOADER_STYLE();
+		this.CONTEXT = data.getCONTEXT();
 	}
 	
 	public static RestClientBuilder builder() {
@@ -70,11 +67,20 @@ public class RestClient {
 			case POST:
 				call = service.post(URL, PARAMS);
 				break;
+			case POST_RAW:
+				call = service.postRaw(URL, BODY);
+				break;
 			case PUT:
 				call = service.put(URL, PARAMS);
 				break;
+			case PUT_RAW:
+				call = service.putRaw(URL, BODY);
+				break;
 			case DELETE:
 				call = service.delete(URL, PARAMS);
+				break;
+			case UPLOAD:
+				call = RestCreator.getRestService().upload(URL, getBody());
 				break;
 			default:
 				break;
@@ -84,6 +90,13 @@ public class RestClient {
 			// 会在后台执行，不会印象UI主进程
 			call.enqueue(getRequestCallback());
 		}
+	}
+	
+	// upload -- get multipartBody.Part
+	private MultipartBody.Part getBody() {
+		final RequestBody requestBody = RequestBody.create(FILE, MediaType.parse(MultipartBody.FORM.toString()));
+		final MultipartBody.Part body = MultipartBody.Part.createFormData("file", FILE.getName(), requestBody);
+		return body;
 	}
 	
 	// 获取请求回调
@@ -96,14 +109,32 @@ public class RestClient {
 	}
 	
 	public final void post() {
-		request(HttpMethod.POST);
+		if (BODY == null) {
+			request(HttpMethod.POST);
+		} else {
+			if (!PARAMS.isEmpty()) {
+				throw new RuntimeException("PARAMS必须是空的！");
+			}
+			request(HttpMethod.PUT_RAW);
+		}
 	}
 	
 	public final void put() {
-		request(HttpMethod.PUT);
+		if (BODY == null) {
+			request(HttpMethod.PUT);
+		} else {
+			if (!PARAMS.isEmpty()) {
+				throw new RuntimeException("PARAMS必须是空的！");
+			}
+			request(HttpMethod.PUT_RAW);
+		}
 	}
 	
 	public final void delete() {
 		request(HttpMethod.DELETE);
+	}
+	
+	public final void upload() {
+		request(HttpMethod.UPLOAD);
 	}
 }
