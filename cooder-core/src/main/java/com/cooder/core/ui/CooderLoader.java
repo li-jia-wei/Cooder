@@ -20,14 +20,14 @@ import java.util.ArrayList;
 
 public class CooderLoader {
 	
-	private static final int LOADER_SIZE = 8;
-	private static final int LOADER_OFFSET_SCALE = 10;
+	private static final int LOADER_SIZE = 9;
+	private static final int LOADER_OFFSET_SCALE = 5;
 	
 	// 加载Dialog集合
 	private static final ArrayList<AppCompatDialog> LOADERS = new ArrayList<>();
 	
 	// 默认动画
-	private static final String DEFAULT_LOADER = LoaderStyle.BallClipRotatePulseIndicator.name();
+	public static final LoaderStyle DEFAULT_LOADER = LoaderStyle.BallPulseIndicator;
 	
 	// 开始动画
 	public static void showLoading(Context context, String type) {
@@ -54,7 +54,7 @@ public class CooderLoader {
 	}
 	
 	public static void showLoading(Context context) {
-		showLoading(context, DEFAULT_LOADER);
+		showLoading(context, DEFAULT_LOADER.name());
 	}
 	
 	// 停止动画

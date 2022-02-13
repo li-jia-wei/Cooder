@@ -46,12 +46,8 @@ public class RequestCallbacks implements Callback<String> {
 				ERROR.onError(response.code(), response.message());
 			}
 		}
+		stopLoading();
 		
-		if (LOADER_STYLE != null) {
-			HANDLER.postDelayed(() -> {
-				CooderLoader.stopLoading();
-			}, 1000);
-		}
 	}
 	
 	@Override
@@ -61,6 +57,15 @@ public class RequestCallbacks implements Callback<String> {
 		}
 		if (REQUEST != null) {
 			REQUEST.onRequestEnd();
+		}
+		stopLoading();
+	}
+	
+	private void stopLoading() {
+		if (LOADER_STYLE != null) {
+			HANDLER.postDelayed(() -> {
+				CooderLoader.stopLoading();
+			}, 1000);
 		}
 	}
 }

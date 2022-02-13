@@ -5,6 +5,7 @@ import com.cooder.core.net.callback.IError;
 import com.cooder.core.net.callback.IFailure;
 import com.cooder.core.net.callback.IRequest;
 import com.cooder.core.net.callback.ISuccess;
+import com.cooder.core.ui.CooderLoader;
 import com.cooder.core.ui.LoaderStyle;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -92,7 +93,7 @@ public class RestClientBuilder {
 	
 	public final RestClientBuilder loader(Context context) {
 		this.mContext = context;
-		this.mLoaderStyle = LoaderStyle.BallClipRotateIndicator;
+		this.mLoaderStyle = CooderLoader.DEFAULT_LOADER;
 		return this;
 	}
 	

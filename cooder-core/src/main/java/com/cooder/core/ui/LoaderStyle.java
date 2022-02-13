@@ -11,8 +11,8 @@ package com.cooder.core.ui;
 public enum LoaderStyle {
 	BallPulseIndicator,
 	BallGridPulseIndicator,
-	BallClipRotateIndicator,    // 默认
-	BallClipRotatePulseIndicator,
+	BallClipRotateIndicator,
+	BallClipRotatePulseIndicator,   // 默认
 	SquareSpinIndicator,
 	BallClipRotateMultipleIndicator,
 	BallPulseRiseIndicator,
