@@ -1,10 +1,5 @@
 package com.cooder.core.net;
 
-import android.content.Context;
-import com.cooder.core.net.callback.IError;
-import com.cooder.core.net.callback.IFailure;
-import com.cooder.core.net.callback.IRequest;
-import com.cooder.core.net.callback.ISuccess;
 import com.cooder.core.ui.LoaderStyle;
 import okhttp3.RequestBody;
 
@@ -21,14 +16,9 @@ import java.util.Map;
 public class RestData {
 	private String URL;
 	private static final Map<String, Object> PARAMS = RestCreator.getParams();
-	private IRequest REQUEST;
-	private ISuccess SUCCESS;
-	private IFailure FAILURE;
-	private IError ERROR;
 	private RequestBody BODY;
 	private LoaderStyle LOADER_STYLE;
 	private File FILE;
-	private Context CONTEXT;
 	
 	public static void setPARAMS(String key, Object value) {
 		PARAMS.put(key, value);
@@ -54,38 +44,6 @@ public class RestData {
 		this.URL = URL;
 	}
 	
-	public IRequest getREQUEST() {
-		return REQUEST;
-	}
-	
-	public void setREQUEST(IRequest REQUEST) {
-		this.REQUEST = REQUEST;
-	}
-	
-	public ISuccess getSUCCESS() {
-		return SUCCESS;
-	}
-	
-	public void setSUCCESS(ISuccess SUCCESS) {
-		this.SUCCESS = SUCCESS;
-	}
-	
-	public IFailure getFAILURE() {
-		return FAILURE;
-	}
-	
-	public void setFAILURE(IFailure FAILURE) {
-		this.FAILURE = FAILURE;
-	}
-	
-	public IError getERROR() {
-		return ERROR;
-	}
-	
-	public void setERROR(IError ERROR) {
-		this.ERROR = ERROR;
-	}
-	
 	public RequestBody getBODY() {
 		return BODY;
 	}
@@ -108,13 +66,5 @@ public class RestData {
 	
 	public void setFILE(File FILE) {
 		this.FILE = FILE;
-	}
-	
-	public Context getCONTEXT() {
-		return CONTEXT;
-	}
-	
-	public void setCONTEXT(Context CONTEXT) {
-		this.CONTEXT = CONTEXT;
 	}
 }

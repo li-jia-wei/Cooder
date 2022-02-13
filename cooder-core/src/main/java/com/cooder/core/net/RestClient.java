@@ -33,30 +33,31 @@ public class RestClient {
 	private final File FILE;
 	private final Context CONTEXT;
 	
-	public RestClient(RestData data) {
-		this.URL = data.getURL();
+	public RestClient(Context context, RestData restData, CallbackData callbackData) {
+		this.URL = restData.getURL();
 		PARAMS.putAll(RestData.getPARAMS());
-		this.REQUEST = data.getREQUEST();
-		this.SUCCESS = data.getSUCCESS();
-		this.FAILURE = data.getFAILURE();
-		this.ERROR = data.getERROR();
-		this.BODY = data.getBODY();
-		this.FILE = data.getFILE();
-		this.LOADER_STYLE = data.getLOADER_STYLE();
-		this.CONTEXT = data.getCONTEXT();
+		this.REQUEST = callbackData.getREQUEST();
+		this.SUCCESS = callbackData.getSUCCESS();
+		this.FAILURE = callbackData.getFAILURE();
+		this.ERROR = callbackData.getERROR();
+		this.BODY = restData.getBODY();
+		this.FILE = restData.getFILE();
+		this.LOADER_STYLE = restData.getLOADER_STYLE();
+		this.CONTEXT = context;
 	}
 	
+	// 构建
 	public static RestClientBuilder builder() {
 		return new RestClientBuilder();
 	}
 	
+	// 请求方法
 	private void request(HttpMethod method) {
 		final RestService service = RestCreator.getRestService();
 		Call<String> call = null;
 		if (REQUEST != null) {
 			REQUEST.onRequestStart();
 		}
-		
 		if (LOADER_STYLE != null) {
 			CooderLoader.showLoading(CONTEXT, LOADER_STYLE);
 		}
@@ -92,7 +93,7 @@ public class RestClient {
 		}
 	}
 	
-	// upload -- get multipartBody.Part
+	// 获取Body
 	private MultipartBody.Part getBody() {
 		final RequestBody requestBody = RequestBody.create(FILE, MediaType.parse(MultipartBody.FORM.toString()));
 		final MultipartBody.Part body = MultipartBody.Part.createFormData("file", FILE.getName(), requestBody);
@@ -136,5 +137,9 @@ public class RestClient {
 	
 	public final void upload() {
 		request(HttpMethod.UPLOAD);
+	}
+	
+	public final void download() {
+	
 	}
 }

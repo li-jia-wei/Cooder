@@ -1,10 +1,7 @@
 package com.cooder.core.net;
 
 import android.content.Context;
-import com.cooder.core.net.callback.IError;
-import com.cooder.core.net.callback.IFailure;
-import com.cooder.core.net.callback.IRequest;
-import com.cooder.core.net.callback.ISuccess;
+import com.cooder.core.net.callback.*;
 import com.cooder.core.ui.CooderLoader;
 import com.cooder.core.ui.LoaderStyle;
 import okhttp3.MediaType;
@@ -22,15 +19,18 @@ import java.util.Map;
 
 public class RestClientBuilder {
 	
-	private final RestData RESTDATA;
+	private Context mContext;
+	private final CallbackData mCallbackData;
+	private final RestData mRestData;
 	
 	RestClientBuilder() {
-		this.RESTDATA = new RestData();
+		this.mCallbackData = new CallbackData();
+		this.mRestData = new RestData();
 	}
 	
 	// 设置url
 	public final RestClientBuilder url(String url) {
-		this.RESTDATA.setURL(url);
+		this.mRestData.setURL(url);
 		return this;
 	}
 	
@@ -48,12 +48,13 @@ public class RestClientBuilder {
 	
 	// 上传文件
 	public final RestClientBuilder file(File file) {
-		this.RESTDATA.setFILE(file);
+		this.mRestData.setFILE(file);
 		return this;
 	}
 	
+	// 上传文件
 	public final RestClientBuilder file(String url) {
-		this.RESTDATA.setFILE(new File(url));
+		this.mRestData.setFILE(new File(url));
 		return this;
 	}
 	
@@ -61,48 +62,48 @@ public class RestClientBuilder {
 	@SuppressWarnings("deprecation")
 	public final RestClientBuilder raw(String raw) {
 		RequestBody requestBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), raw);
-		this.RESTDATA.setBODY(requestBody);
+		this.mRestData.setBODY(requestBody);
 		return this;
 	}
 	
 	// 请求回调
 	public final RestClientBuilder onRequest(IRequest iRequest) {
-		this.RESTDATA.setREQUEST(iRequest);
+		this.mCallbackData.setREQUEST(iRequest);
 		return this;
 	}
 	
 	// 请求成功回调
 	public final RestClientBuilder success(ISuccess iSuccess) {
-		this.RESTDATA.setSUCCESS(iSuccess);
+		this.mCallbackData.setSUCCESS(iSuccess);
 		return this;
 	}
 	
 	// 请求失败回调
 	public final RestClientBuilder failure(IFailure iFailure) {
-		this.RESTDATA.setFAILURE(iFailure);
+		this.mCallbackData.setFAILURE(iFailure);
 		return this;
 	}
 	
 	// 请求报错回调
 	public final RestClientBuilder error(IError iError) {
-		this.RESTDATA.setERROR(iError);
+		this.mCallbackData.setERROR(iError);
 		return this;
 	}
 	
 	// 设置加载
 	public final RestClientBuilder loader(Context context, LoaderStyle loaderStyle) {
-		this.RESTDATA.setCONTEXT(context);
-		this.RESTDATA.setLOADER_STYLE(loaderStyle);
+		this.mContext = context;
+		this.mRestData.setLOADER_STYLE(loaderStyle);
 		return this;
 	}
 	
 	public final RestClientBuilder loader(Context context) {
-		this.RESTDATA.setCONTEXT(context);
-		this.RESTDATA.setLOADER_STYLE(CooderLoader.DEFAULT_LOADER);
+		this.mContext = context;
+		this.mRestData.setLOADER_STYLE(CooderLoader.DEFAULT_LOADER);
 		return this;
 	}
 	
 	public final RestClient build() {
-		return new RestClient(RESTDATA);
+		return new RestClient(mContext, mRestData, mCallbackData);
 	}
 }
