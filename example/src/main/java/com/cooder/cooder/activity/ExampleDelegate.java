@@ -32,7 +32,10 @@ public class ExampleDelegate extends CooderDelegate {
 	private void testRestClient() {
 		RestClient.builder()
 				.url("http://news.baidu.com/")
-				.success(L::i)
+				.loader(getContext())
+				.success(response -> {
+					L.i(response);
+				})
 				.failure(() -> {
 				
 				})

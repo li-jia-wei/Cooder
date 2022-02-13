@@ -1,6 +1,8 @@
 package com.cooder.core.util;
 
 import android.util.Log;
+import com.cooder.core.R;
+import com.cooder.core.app.Cooder;
 
 /**
  * 项目名称：Cooder
@@ -12,7 +14,7 @@ import android.util.Log;
 public class L {
 	
 	private static final class LogHolder {
-		private static final String TAG = "Cooder";
+		private static final String TAG = Cooder.getApplication().getString(R.string.app_name);
 		private static final boolean DEBUG = true;
 	}
 	
