@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.cooder.cooder.R;
 import com.cooder.core.delegate.CooderDelegate;
 import com.cooder.core.net.RestClient;
-import com.cooder.core.util.L;
+import com.cooder.core.util.log.L;
 
 /**
  * 项目名称：Cooder
@@ -42,6 +42,8 @@ public class ExampleDelegate extends CooderDelegate {
 				.error((code, msg) -> {
 					Toast.makeText(getContext(), code + " : " + msg, Toast.LENGTH_LONG).show();
 				})
+				.dir("")
+				.extension("")
 				.build()
 				.get();
 	}

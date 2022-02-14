@@ -1,4 +1,4 @@
-package com.cooder.core.util;
+package com.cooder.core.util.log;
 
 import android.util.Log;
 import com.cooder.core.R;
@@ -14,7 +14,7 @@ import com.cooder.core.app.Cooder;
 public class L {
 	
 	private static final class LogHolder {
-		private static final String TAG = Cooder.getApplication().getString(R.string.app_name);
+		private static final String TAG = Cooder.getApplicationContext().getString(R.string.app_name);
 		private static final boolean DEBUG = true;
 	}
 	

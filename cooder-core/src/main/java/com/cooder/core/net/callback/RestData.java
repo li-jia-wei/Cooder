@@ -1,5 +1,6 @@
-package com.cooder.core.net;
+package com.cooder.core.net.data;
 
+import com.cooder.core.net.RestCreator;
 import com.cooder.core.ui.LoaderStyle;
 import okhttp3.RequestBody;
 
@@ -14,11 +15,11 @@ import java.util.Map;
  */
 
 public class RestData {
-	private String URL;
+	private String url;
 	private static final Map<String, Object> PARAMS = RestCreator.getParams();
-	private RequestBody BODY;
-	private LoaderStyle LOADER_STYLE;
-	private File FILE;
+	private RequestBody body;
+	private LoaderStyle loaderStyle;
+	private File file;
 	
 	public static void setPARAMS(String key, Object value) {
 		PARAMS.put(key, value);
@@ -36,35 +37,35 @@ public class RestData {
 		return PARAMS.get(key);
 	}
 	
-	public String getURL() {
-		return URL;
+	public String getUrl() {
+		return url;
 	}
 	
-	public void setURL(String URL) {
-		this.URL = URL;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
-	public RequestBody getBODY() {
-		return BODY;
+	public RequestBody getBody() {
+		return body;
 	}
 	
-	public void setBODY(RequestBody BODY) {
-		this.BODY = BODY;
+	public void setBody(RequestBody body) {
+		this.body = body;
 	}
 	
-	public LoaderStyle getLOADER_STYLE() {
-		return LOADER_STYLE;
+	public LoaderStyle getLoaderStyle() {
+		return loaderStyle;
 	}
 	
-	public void setLOADER_STYLE(LoaderStyle LOADER_STYLE) {
-		this.LOADER_STYLE = LOADER_STYLE;
+	public void setLoaderStyle(LoaderStyle loaderStyle) {
+		this.loaderStyle = loaderStyle;
 	}
 	
-	public File getFILE() {
-		return FILE;
+	public File getFile() {
+		return file;
 	}
 	
-	public void setFILE(File FILE) {
-		this.FILE = FILE;
+	public void setFile(File file) {
+		this.file = file;
 	}
 }

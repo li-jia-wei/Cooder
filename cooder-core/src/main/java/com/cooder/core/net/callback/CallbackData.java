@@ -1,4 +1,9 @@
-package com.cooder.core.net.callback;
+package com.cooder.core.net.data;
+
+import com.cooder.core.net.callback.IError;
+import com.cooder.core.net.callback.IFailure;
+import com.cooder.core.net.callback.IRequest;
+import com.cooder.core.net.callback.ISuccess;
 
 /**
  * 项目名称：Cooder
@@ -8,40 +13,51 @@ package com.cooder.core.net.callback;
  */
 
 public class CallbackData {
-	private IRequest REQUEST;
-	private ISuccess SUCCESS;
-	private IFailure FAILURE;
-	private IError ERROR;
+	private IRequest request;
+	private ISuccess success;
+	private IFailure failure;
+	private IError error;
 	
-	public IRequest getREQUEST() {
-		return REQUEST;
+	public CallbackData() {
+	
 	}
 	
-	public void setREQUEST(IRequest REQUEST) {
-		this.REQUEST = REQUEST;
+	public CallbackData(IRequest request, ISuccess success, IFailure failure, IError error) {
+		this.request = request;
+		this.success = success;
+		this.failure = failure;
+		this.error = error;
 	}
 	
-	public ISuccess getSUCCESS() {
-		return SUCCESS;
+	public IRequest getRequest() {
+		return request;
 	}
 	
-	public void setSUCCESS(ISuccess SUCCESS) {
-		this.SUCCESS = SUCCESS;
+	public void setRequest(IRequest request) {
+		this.request = request;
 	}
 	
-	public IFailure getFAILURE() {
-		return FAILURE;
+	public ISuccess getSuccess() {
+		return success;
 	}
 	
-	public void setFAILURE(IFailure FAILURE) {
-		this.FAILURE = FAILURE;
+	public void setSuccess(ISuccess success) {
+		this.success = success;
 	}
 	
-	public IError getERROR() {
-		return ERROR;
+	public IFailure getFailure() {
+		return failure;
 	}
 	
-	public void setERROR(IError ERROR) {
-		this.ERROR = ERROR;
+	public void setFailure(IFailure failure) {
+		this.failure = failure;
+	}
+	
+	public IError getError() {
+		return error;
+	}
+	
+	public void setError(IError error) {
+		this.error = error;
 	}
 }

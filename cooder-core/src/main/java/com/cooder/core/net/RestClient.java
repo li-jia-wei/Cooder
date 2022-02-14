@@ -2,6 +2,10 @@ package com.cooder.core.net;
 
 import android.content.Context;
 import com.cooder.core.net.callback.*;
+import com.cooder.core.net.data.CallbackData;
+import com.cooder.core.net.data.DownloadData;
+import com.cooder.core.net.data.RestData;
+import com.cooder.core.net.download.DownloadHandler;
 import com.cooder.core.ui.CooderLoader;
 import com.cooder.core.ui.LoaderStyle;
 import okhttp3.MediaType;
@@ -21,29 +25,34 @@ import java.util.Map;
  */
 
 public class RestClient {
-	
+	private final Context CONTEXT;
 	private final String URL;
 	private static final Map<String, Object> PARAMS = RestData.getPARAMS();
+	private final RequestBody BODY;
+	private final File FILE;
+	private final LoaderStyle LOADER_STYLE;
 	private final IRequest REQUEST;
 	private final ISuccess SUCCESS;
 	private final IFailure FAILURE;
 	private final IError ERROR;
-	private final RequestBody BODY;
-	private final LoaderStyle LOADER_STYLE;
-	private final File FILE;
-	private final Context CONTEXT;
+	private final String DOWNLOAD_DIR;
+	private final String EXTENSION;
+	private final String NAME;
 	
-	public RestClient(Context context, RestData restData, CallbackData callbackData) {
-		this.URL = restData.getURL();
-		PARAMS.putAll(RestData.getPARAMS());
-		this.REQUEST = callbackData.getREQUEST();
-		this.SUCCESS = callbackData.getSUCCESS();
-		this.FAILURE = callbackData.getFAILURE();
-		this.ERROR = callbackData.getERROR();
-		this.BODY = restData.getBODY();
-		this.FILE = restData.getFILE();
-		this.LOADER_STYLE = restData.getLOADER_STYLE();
+	public RestClient(Context context, RestData restData, CallbackData callbackData, DownloadData downloadData) {
 		this.CONTEXT = context;
+		this.URL = restData.getUrl();
+		PARAMS.putAll(RestData.getPARAMS());
+		this.BODY = restData.getBody();
+		this.FILE = restData.getFile();
+		this.LOADER_STYLE = restData.getLoaderStyle();
+		this.REQUEST = callbackData.getRequest();
+		this.SUCCESS = callbackData.getSuccess();
+		this.FAILURE = callbackData.getFailure();
+		this.ERROR = callbackData.getError();
+		this.DOWNLOAD_DIR = downloadData.getDownloadDir();
+		this.EXTENSION = downloadData.getExtension();
+		this.NAME = downloadData.getName();
 	}
 	
 	// 构建
@@ -140,6 +149,9 @@ public class RestClient {
 	}
 	
 	public final void download() {
-	
+		CallbackData callbackData = new CallbackData(REQUEST, SUCCESS, FAILURE, ERROR);
+		DownloadData downloadData = new DownloadData(NAME, EXTENSION, DOWNLOAD_DIR);
+		DownloadHandler handler = new DownloadHandler(URL, callbackData, downloadData);
+		handler.handleDownload();
 	}
 }

@@ -25,7 +25,7 @@ public class Cooder {
 	}
 	
 	// 获取Application
-	public static Context getApplication() {
+	public static Context getApplicationContext() {
 		return (Context) getConfigurator().get(ConfigType.APPLICATION_CONTEXT.name());
 	}
 }

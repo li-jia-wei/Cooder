@@ -6,7 +6,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatDialog;
 import com.cooder.core.R;
-import com.cooder.core.util.Screen;
+import com.cooder.core.util.screen.ScreenUtil;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
@@ -34,8 +34,8 @@ public class CooderLoader {
 		final AppCompatDialog dialog = new AppCompatDialog(context, R.style.dialog);
 		final AVLoadingIndicatorView avLoadingIndicatorView = LoaderCreator.create(type, context);
 		dialog.setContentView(avLoadingIndicatorView);
-		final int width = Screen.getWidthPixels();
-		final int height = Screen.getHeightPixels();
+		final int width = ScreenUtil.getWidthPixels();
+		final int height = ScreenUtil.getHeightPixels();
 		final Window dialogWindow = dialog.getWindow();
 		
 		if (dialogWindow != null) {
