@@ -30,7 +30,7 @@ public class RestClient {
 	private static final Map<String, Object> PARAMS = RestData.getPARAMS();
 	private final RequestBody BODY;
 	private final File FILE;
-	private final LoaderStyle LOADER_STYLE;
+	private final Enum<LoaderStyle> LOADER_STYLE;
 	private final IRequest REQUEST;
 	private final ISuccess SUCCESS;
 	private final IFailure FAILURE;
@@ -111,7 +111,8 @@ public class RestClient {
 	
 	// 获取请求回调
 	private Callback<String> getRequestCallback() {
-		return new RequestCallbacks(REQUEST, SUCCESS, FAILURE, ERROR, LOADER_STYLE);
+		CallbackData callbackData = new CallbackData(REQUEST, SUCCESS, FAILURE, ERROR);
+		return new RequestCallbacks(callbackData, LOADER_STYLE);
 	}
 	
 	public final void get() {
@@ -149,9 +150,10 @@ public class RestClient {
 	}
 	
 	public final void download() {
-		CallbackData callbackData = new CallbackData(REQUEST, SUCCESS, FAILURE, ERROR);
-		DownloadData downloadData = new DownloadData(NAME, EXTENSION, DOWNLOAD_DIR);
-		DownloadHandler handler = new DownloadHandler(URL, callbackData, downloadData);
+		DownloadHandler handler = new DownloadHandler(URL,
+				new CallbackData(REQUEST, SUCCESS, FAILURE, ERROR),
+				new DownloadData(NAME, EXTENSION, DOWNLOAD_DIR)
+		);
 		handler.handleDownload();
 	}
 }

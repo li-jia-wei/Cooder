@@ -2,6 +2,8 @@ package com.cooder.core.net.callback;
 
 import android.os.Handler;
 import android.os.Looper;
+import com.cooder.core.global.Cooder;
+import com.cooder.core.net.data.CallbackData;
 import com.cooder.core.ui.CooderLoader;
 import com.cooder.core.ui.LoaderStyle;
 import org.jetbrains.annotations.NotNull;
@@ -22,14 +24,14 @@ public class RequestCallbacks implements Callback<String> {
 	private final ISuccess SUCCESS;
 	private final IFailure FAILURE;
 	private final IError ERROR;
-	private final LoaderStyle LOADER_STYLE;
+	private final Enum<LoaderStyle> LOADER_STYLE;
 	private static final Handler HANDLER = new Handler(Looper.myLooper());
 	
-	public RequestCallbacks(IRequest request, ISuccess success, IFailure failure, IError error, LoaderStyle style) {
-		this.REQUEST = request;
-		this.SUCCESS = success;
-		this.FAILURE = failure;
-		this.ERROR = error;
+	public RequestCallbacks(CallbackData callbackData, Enum<LoaderStyle> style) {
+		this.REQUEST = callbackData.getRequest();
+		this.SUCCESS = callbackData.getSuccess();
+		this.FAILURE = callbackData.getFailure();
+		this.ERROR = callbackData.getError();
 		this.LOADER_STYLE = style;
 	}
 	
@@ -65,7 +67,7 @@ public class RequestCallbacks implements Callback<String> {
 		if (LOADER_STYLE != null) {
 			HANDLER.postDelayed(() -> {
 				CooderLoader.stopLoading();
-			}, 1000);
+			}, Cooder.getLoaderDelayed());
 		}
 	}
 }

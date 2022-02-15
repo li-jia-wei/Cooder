@@ -2,7 +2,7 @@ package com.cooder.core.util.screen;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
-import com.cooder.core.app.Cooder;
+import com.cooder.core.global.Cooder;
 
 /**
  * 项目名称：Cooder

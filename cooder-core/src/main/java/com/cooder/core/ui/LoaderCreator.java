@@ -4,6 +4,7 @@ import android.content.Context;
 import com.wang.avi.AVLoadingIndicatorView;
 import com.wang.avi.Indicator;
 
+import java.util.Objects;
 import java.util.WeakHashMap;
 
 /**
@@ -33,7 +34,7 @@ public final class LoaderCreator {
 		}
 		final StringBuilder drawableClassName = new StringBuilder();
 		if (!name.contains(".")) {
-			final String defaultPackageName = AVLoadingIndicatorView.class.getPackage().getName();
+			final String defaultPackageName = Objects.requireNonNull(AVLoadingIndicatorView.class.getPackage()).getName();
 			drawableClassName.append(defaultPackageName)
 					.append(".indicators")
 					.append(".");

@@ -2,7 +2,7 @@ package com.cooder.core.util.log;
 
 import android.util.Log;
 import com.cooder.core.R;
-import com.cooder.core.app.Cooder;
+import com.cooder.core.global.Cooder;
 
 /**
  * 项目名称：Cooder
@@ -21,6 +21,12 @@ public class L {
 	public static void i(String msg) {
 		if (LogHolder.DEBUG) {
 			Log.i(LogHolder.TAG, msg);
+		}
+	}
+	
+	public static void e(String msg) {
+		if (LogHolder.DEBUG) {
+			Log.e(LogHolder.TAG, msg);
 		}
 	}
 }

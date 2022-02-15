@@ -3,7 +3,7 @@ package com.cooder.core.net.download;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
-import com.cooder.core.app.Cooder;
+import com.cooder.core.global.Cooder;
 import com.cooder.core.net.callback.IRequest;
 import com.cooder.core.net.callback.ISuccess;
 import com.cooder.core.util.file.FileUtil;

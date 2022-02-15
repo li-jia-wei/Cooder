@@ -10,7 +10,7 @@ dependencyResolutionManagement {
 	}
 }
 rootProject.name = "Cooder"
-include ':example'
+include ':app'
 include ':cooder-annotations'
 include ':cooder-compiler'
 include ':cooder-core'

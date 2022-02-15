@@ -18,7 +18,7 @@ public class RestData {
 	private String url;
 	private static final Map<String, Object> PARAMS = RestCreator.getParams();
 	private RequestBody body;
-	private LoaderStyle loaderStyle;
+	private Enum<LoaderStyle> loaderStyle;
 	private File file;
 	
 	public static void setPARAMS(String key, Object value) {
@@ -53,11 +53,11 @@ public class RestData {
 		this.body = body;
 	}
 	
-	public LoaderStyle getLoaderStyle() {
+	public Enum<LoaderStyle> getLoaderStyle() {
 		return loaderStyle;
 	}
 	
-	public void setLoaderStyle(LoaderStyle loaderStyle) {
+	public void setLoaderStyle(Enum<LoaderStyle> loaderStyle) {
 		this.loaderStyle = loaderStyle;
 	}
 	

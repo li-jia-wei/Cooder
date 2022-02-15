@@ -27,7 +27,7 @@ public class CooderLoader {
 	private static final ArrayList<AppCompatDialog> LOADERS = new ArrayList<>();
 	
 	// 默认动画
-	public static final LoaderStyle DEFAULT_LOADER = LoaderStyle.BallPulseIndicator;
+	public static final Enum<LoaderStyle> DEFAULT_LOADER = LoaderStyle.BallPulseIndicator;
 	
 	// 开始动画
 	public static void showLoading(Context context, String type) {

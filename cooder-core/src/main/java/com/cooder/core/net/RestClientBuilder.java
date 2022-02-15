@@ -1,6 +1,7 @@
 package com.cooder.core.net;
 
 import android.content.Context;
+import com.cooder.core.global.Cooder;
 import com.cooder.core.net.callback.IError;
 import com.cooder.core.net.callback.IFailure;
 import com.cooder.core.net.callback.IRequest;
@@ -105,34 +106,37 @@ public class RestClientBuilder {
 		return this;
 	}
 	
+	public final RestClientBuilder delayed(int millisecond) {
+		Cooder.setLoaderDelayed(millisecond);
+		return this;
+	}
+	
+	// 设置加载9
 	public final RestClientBuilder loader(Context context) {
 		this.mContext = context;
 		this.mRestData.setLoaderStyle(CooderLoader.DEFAULT_LOADER);
 		return this;
 	}
 	
-	// 设置下载
+	// 设置下载目录
 	public final RestClientBuilder dir(String dir) {
 		this.mDownloadData.setDownloadDir(dir);
 		return this;
 	}
 	
+	// 设置扩展名（后缀）
 	public final RestClientBuilder extension(String extension) {
 		this.mDownloadData.setExtension(extension);
 		return this;
 	}
 	
+	// 设置文件名称
 	public final RestClientBuilder name(String name) {
 		this.mDownloadData.setName(name);
 		return this;
 	}
 	
-	public final RestClientBuilder dirAndExtension(String dir, String extension) {
-		this.mDownloadData.setDownloadDir(dir);
-		this.mDownloadData.setExtension(extension);
-		return this;
-	}
-	
+	// 构建
 	public final RestClient build() {
 		return new RestClient(mContext, mRestData, mCallbackData, mDownloadData);
 	}

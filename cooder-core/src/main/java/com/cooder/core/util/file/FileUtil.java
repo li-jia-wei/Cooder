@@ -12,7 +12,8 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.webkit.MimeTypeMap;
 import android.widget.TextView;
-import com.cooder.core.app.Cooder;
+import androidx.annotation.RawRes;
+import com.cooder.core.global.Cooder;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -20,8 +21,12 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Created by 傅令杰
+ * 项目名称：Cooder
+ * 创建时间：2022/2/13 09:44
+ * 作者姓名：lijiawei
+ * 功能介绍：文件工具
  */
+
 public final class FileUtil {
 	
 	//格式化的模板
@@ -246,7 +251,7 @@ public final class FileUtil {
 	/**
 	 * 读取raw目录中的文件,并返回为字符串
 	 */
-	public static String getRawFile(int id) {
+	public static String getRawFile(@RawRes int id) {
 		final InputStream is = Cooder.getApplicationContext().getResources().openRawResource(id);
 		final BufferedInputStream bis = new BufferedInputStream(is);
 		final InputStreamReader isr = new InputStreamReader(bis);
