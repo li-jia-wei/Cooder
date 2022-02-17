@@ -4,6 +4,7 @@ package com.cooder.core.net.data;
  * 项目名称：Cooder
  * 创建时间：2022/2/14 11:08
  * 作者姓名：lijiawei
+ * 文件类型：类
  * 功能介绍：下载的数据
  */
 

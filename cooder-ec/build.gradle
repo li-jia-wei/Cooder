@@ -1,6 +1,7 @@
 //file:noinspection GroovyAssignabilityCheck
 plugins {
 	id 'com.android.library'
+	id 'com.jakewharton.butterknife'
 }
 
 android {
@@ -34,4 +35,6 @@ dependencies {
 	androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 	// 模块依赖
 	api project(':cooder-core')
+	// ButterKnife
+	annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 }

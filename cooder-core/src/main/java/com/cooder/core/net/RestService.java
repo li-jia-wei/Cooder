@@ -12,6 +12,7 @@ import java.util.Map;
  * 项目名称：Cooder
  * 创建时间：2022/2/11 18:59
  * 作者姓名：lijiawei
+ * 文件类型：接口
  * 功能介绍：请求接口
  */
 

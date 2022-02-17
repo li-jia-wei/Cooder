@@ -8,6 +8,7 @@ import com.cooder.core.global.Cooder;
  * 项目名称：Cooder
  * 创建时间：2022/2/13 12:25
  * 作者姓名：lijiawei
+ * 文件类型：类
  * 功能介绍：屏幕工具
  */
 

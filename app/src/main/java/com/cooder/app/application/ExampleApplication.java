@@ -1,4 +1,4 @@
-package com.cooder.app.activity;
+package com.cooder.app.application;
 
 import android.app.Application;
 import com.cooder.app.R;
@@ -11,7 +11,8 @@ import com.joanzapata.iconify.fonts.FontAwesomeModule;
  * 项目名称：Cooder
  * 创建时间：2022/2/11 10:47
  * 作者姓名：lijiawei
- * 功能介绍：无
+ * 文件类型：类
+ * 功能介绍：ExampleApplication
  */
 
 public class ExampleApplication extends Application {

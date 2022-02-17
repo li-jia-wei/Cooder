@@ -1,4 +1,4 @@
-package com.cooder.app.activity;
+package com.cooder.app.delegate;
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +12,8 @@ import com.cooder.core.util.log.L;
  * 项目名称：Cooder
  * 创建时间：2022/2/11 11:50
  * 作者姓名：lijiawei
- * 功能介绍：无
+ * 文件类型：类
+ * 功能介绍：测试类
  */
 
 public class ExampleDelegate extends CooderDelegate {
@@ -24,7 +25,7 @@ public class ExampleDelegate extends CooderDelegate {
 	
 	@Override
 	public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-		testRestClient();
+//		testRestClient();
 	}
 	
 	// 测试代码

@@ -1,4 +1,4 @@
-package com.cooder.core.ui;
+package com.cooder.core.ui.loader;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -15,7 +15,8 @@ import java.util.ArrayList;
  * 项目名称：Cooder
  * 创建时间：2022/2/13 09:47
  * 作者姓名：lijiawei
- * 功能介绍：
+ * 文件类型：类
+ * 功能介绍：Cooder加载
  */
 
 public class CooderLoader {

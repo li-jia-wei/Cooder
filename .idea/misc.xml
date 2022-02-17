@@ -5,6 +5,34 @@
       <map>
         <entry key="../../../../../../../layout/custom_preview.xml" value="0.23020833333333332" />
         <entry key="../../../../../.gradle/caches/transforms-3/4f7fde6443b19e6ece3941e32d79f216/transformed/appcompat-1.2.0/res/layout/support_simple_spinner_dropdown_item.xml" value="0.3890625" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.31296296296296294" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.30564102564102563" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1769736842105263" />
+        <entry key="app/src/main/res/layout/delegate_container.xml" value="0.25526315789473686" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3332048510194042" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.30564102564102563" />
+        <entry key="cooder-ec/src/main/res/drawable/border_circle_timer.xml" value="0.18651315789473685" />
+        <entry key="cooder-ec/src/main/res/drawable/dot_normal.xml" value="0.2692307692307692" />
+        <entry key="cooder-ec/src/main/res/drawable/ic_launcher_scroll_1.xml" value="0.2612040133779264" />
+        <entry key="cooder-ec/src/main/res/drawable/ic_launcher_scroll_2.xml" value="0.2698996655518395" />
+        <entry key="cooder-ec/src/main/res/drawable/ic_launcher_scroll_3.xml" value="0.2698996655518395" />
+        <entry key="cooder-ec/src/main/res/drawable/ic_launcher_scroll_4.xml" value="0.2698996655518395" />
+        <entry key="cooder-ec/src/main/res/drawable/ic_launcher_scroll_5.xml" value="0.2698996655518395" />
+        <entry key="cooder-ec/src/main/res/drawable/ic_launcher_scroll_6.xml" value="0.2612040133779264" />
+        <entry key="cooder-ec/src/main/res/drawable/launcher_0.xml" value="0.31296296296296294" />
+        <entry key="cooder-ec/src/main/res/drawable/launcher_1.xml" value="0.25833333333333336" />
+        <entry key="cooder-ec/src/main/res/drawable/launcher_scroll_4.xml" value="0.2698996655518395" />
+        <entry key="cooder-ec/src/main/res/drawable/launcher_scroll_dot_off.xml" value="0.13614864864864865" />
+        <entry key="cooder-ec/src/main/res/drawable/launcher_scroll_dot_on.xml" value="0.19222972972972974" />
+        <entry key="cooder-ec/src/main/res/drawable/launcher_timer_down.xml" value="0.2698996655518395" />
+        <entry key="cooder-ec/src/main/res/drawable/launcher_timer_off.xml" value="0.19222972972972974" />
+        <entry key="cooder-ec/src/main/res/drawable/launcher_timer_on.xml" value="0.19222972972972974" />
+        <entry key="cooder-ec/src/main/res/drawable/launcher_timer_selector.xml" value="0.14625407166123777" />
+        <entry key="cooder-ec/src/main/res/drawable/launcher_timer_up.xml" value="0.1469055374592834" />
+        <entry key="cooder-ec/src/main/res/drawable/other.xml" value="0.13614864864864865" />
+        <entry key="cooder-ec/src/main/res/layout/delegate_launchar.xml" value="0.14594594594594595" />
+        <entry key="cooder-ec/src/main/res/layout/item.xml" value="0.1810810810810811" />
+        <entry key="cooder-ec/src/main/res/layout/item_delegate_scroll.xml" value="0.14594594594594595" />
         <entry key="example/src/main/res/layout/activity_main.xml" value="0.21875" />
         <entry key="example/src/main/res/layout/delegate_container.xml" value="0.21822916666666667" />
       </map>

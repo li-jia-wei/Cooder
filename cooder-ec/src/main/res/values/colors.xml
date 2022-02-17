@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- 全局 -->
+	<color name="white">#ffffff</color>
+	<color name="black">#000000</color>
+	<color name="primary">#587DF7</color>
+	<color name="primary_variant">#587DF7</color>
+	<color name="secondary">@color/primary</color>
+	<color name="secondary_variant">@color/primary_variant</color>
+	<color name="accent">#587DF7</color>
+	<color name="font_default">#333333</color>
+	<color name="transparent">#00000000</color>
+
+	<!-- 启动页 -->
+	<color name="launcher_bg">#587DF7</color>
+	<color name="launcher_timer_off">#55ffffff</color>
+	<color name="launcher_timer_on">#88ffffff</color>
+
+	<!-- 滚动页 -->
+	<color name="dot_off">#33000000</color>
+	<color name="dot_on">#77000000</color>
+</resources>

@@ -8,13 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import com.cooder.core.net.RestClientBuilder;
+import com.cooder.core.activity.ProxyActivity;
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
  * 项目名称：Cooder
  * 创建时间：2022/2/11 10:57
  * 作者姓名：lijiawei
+ * 文件类型：抽象类
  * 功能介绍：Delegate基类
  */
 
@@ -34,12 +35,18 @@ public abstract class BaseDelegate extends SwipeBackFragment {
 			rootView = inflater.inflate((Integer) sayLayout(), container, false);
 		} else if (sayLayout() instanceof View) {
 			rootView = (View) sayLayout();
+		} else {
+			throw new ClassCastException("setLayout()返回值必须是int或者View的！");
 		}
 		if (rootView != null) {
 			mUnbinder = ButterKnife.bind(this, rootView);
 			onBindView(savedInstanceState, rootView);
 		}
 		return rootView;
+	}
+	
+	public final ProxyActivity getProxyActivity() {
+		return (ProxyActivity) super._mActivity;
 	}
 	
 	@Override

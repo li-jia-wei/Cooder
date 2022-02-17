@@ -4,8 +4,8 @@ import android.os.Handler;
 import android.os.Looper;
 import com.cooder.core.global.Cooder;
 import com.cooder.core.net.data.CallbackData;
-import com.cooder.core.ui.CooderLoader;
-import com.cooder.core.ui.LoaderStyle;
+import com.cooder.core.ui.loader.CooderLoader;
+import com.cooder.core.ui.loader.LoaderStyle;
 import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,6 +15,7 @@ import retrofit2.Response;
  * 项目名称：Cooder
  * 创建时间：2022/2/12 11:12
  * 作者姓名：lijiawei
+ * 文件类型：类
  * 功能介绍：请求回调函数
  */
 

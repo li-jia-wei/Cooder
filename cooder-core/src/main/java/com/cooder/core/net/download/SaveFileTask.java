@@ -16,6 +16,7 @@ import java.io.InputStream;
  * 项目名称：Cooder
  * 创建时间：2022/2/14 18:05
  * 作者姓名：lijiawei
+ * 文件类型：类
  * 功能介绍：保存文件任务
  */
 

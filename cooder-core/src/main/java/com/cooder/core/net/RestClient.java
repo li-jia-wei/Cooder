@@ -6,8 +6,8 @@ import com.cooder.core.net.data.CallbackData;
 import com.cooder.core.net.data.DownloadData;
 import com.cooder.core.net.data.RestData;
 import com.cooder.core.net.download.DownloadHandler;
-import com.cooder.core.ui.CooderLoader;
-import com.cooder.core.ui.LoaderStyle;
+import com.cooder.core.ui.loader.CooderLoader;
+import com.cooder.core.ui.loader.LoaderStyle;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -21,6 +21,7 @@ import java.util.Map;
  * 项目名称：Cooder
  * 创建时间：2022/2/11 17:01
  * 作者姓名：lijiawei
+ * 文件类型：类
  * 功能介绍：网络请求实现类
  */
 

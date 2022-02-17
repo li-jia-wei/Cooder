@@ -6,7 +6,8 @@ import com.joanzapata.iconify.Icon;
  * 项目名称：Cooder
  * 创建时间：2022/2/11 10:12
  * 作者姓名：lijiawei
- * 功能介绍：无
+ * 文件类型：枚举
+ * 功能介绍：图标
  */
 
 public enum Icons implements Icon {

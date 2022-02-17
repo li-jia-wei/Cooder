@@ -11,6 +11,7 @@ import java.util.HashMap;
  * 项目名称：Cooder
  * 创建时间：2022/2/11 10:19
  * 作者姓名：lijiawei
+ * 文件类型：类
  * 功能介绍：配置
  */
 

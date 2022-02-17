@@ -1,7 +1,7 @@
 package com.cooder.core.net.data;
 
 import com.cooder.core.net.RestCreator;
-import com.cooder.core.ui.LoaderStyle;
+import com.cooder.core.ui.loader.LoaderStyle;
 import okhttp3.RequestBody;
 
 import java.io.File;
@@ -11,6 +11,7 @@ import java.util.Map;
  * 项目名称：Cooder
  * 创建时间：2022/2/13 18:58
  * 作者姓名：lijiawei
+ * 文件类型：类
  * 功能介绍：Rest参数
  */
 

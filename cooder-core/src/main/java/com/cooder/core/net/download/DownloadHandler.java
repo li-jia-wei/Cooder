@@ -21,6 +21,7 @@ import java.util.Map;
  * 项目名称：Cooder
  * 创建时间：2022/2/13 21:32
  * 作者姓名：lijiawei
+ * 文件类型：类
  * 功能介绍：下载处理
  */
 

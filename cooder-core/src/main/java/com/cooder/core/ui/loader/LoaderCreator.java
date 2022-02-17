@@ -1,4 +1,4 @@
-package com.cooder.core.ui;
+package com.cooder.core.ui.loader;
 
 import android.content.Context;
 import com.wang.avi.AVLoadingIndicatorView;
@@ -11,6 +11,7 @@ import java.util.WeakHashMap;
  * 项目名称：Cooder
  * 创建时间：2022/2/13 09:32
  * 作者姓名：lijiawei
+ * 文件类型：类
  * 功能介绍：加载创建者
  */
 

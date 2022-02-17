@@ -10,6 +10,7 @@ import java.util.LinkedHashMap;
  * 项目名称：Cooder
  * 创建时间：2022/2/15 14:04
  * 作者姓名：lijiawei
+ * 文件类型：抽象类
  * 功能介绍：拦截器
  */
 
