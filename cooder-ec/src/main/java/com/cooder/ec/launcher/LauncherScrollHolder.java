@@ -1,9 +1,9 @@
-package com.cooder.core.ui.launcher;
+package com.cooder.ec.launcher;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import com.bigkoo.convenientbanner.holder.Holder;
+import com.cooder.ec.R;
 
 /**
  * 项目名称：Cooder
@@ -13,18 +13,21 @@ import com.bigkoo.convenientbanner.holder.Holder;
  * 功能介绍：首次滚动图
  */
 
-public class LauncherScrollHolder implements Holder<Integer> {
+public class LauncherScrollHolder extends Holder<Integer> {
 	
 	private ImageView mImageView;
 	
-	@Override
-	public View createView(Context context) {
-		mImageView = new ImageView(context);
-		return mImageView;
+	public LauncherScrollHolder(View itemView) {
+		super(itemView);
 	}
 	
 	@Override
-	public void UpdateUI(Context context, int position, Integer data) {
+	protected void initView(View itemView) {
+		mImageView = itemView.findViewById(R.id.iv_scroll);
+	}
+	
+	@Override
+	public void updateUI(Integer data) {
 		mImageView.setImageResource(data);
 	}
 }

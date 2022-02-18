@@ -4,7 +4,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import com.cooder.core.activity.ProxyActivity;
 import com.cooder.core.delegate.CooderDelegate;
-import com.cooder.ec.launcher.LauncherDelegate;
+import com.cooder.ec.sign.SignUpDelegate;
 
 public class ExampleActivity extends ProxyActivity {
 	
@@ -15,6 +15,6 @@ public class ExampleActivity extends ProxyActivity {
 	
 	@Override
 	public CooderDelegate setRootDelegate() {
-		return new LauncherDelegate();
+		return new SignUpDelegate();
 	}
 }

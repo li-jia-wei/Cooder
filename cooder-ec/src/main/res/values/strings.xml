@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="launcher_timer_default">3s | 跳过</string>
+
+	<string name="sign_up_sign_up">注册</string>
+	<string name="sign_up_basic_information">基本信息</string>
+	<string name="sign_up_nickname">昵称</string>
+	<string name="sign_up_email">邮箱</string>
+	<string name="sign_up_phone">手机号码</string>
+	<string name="sign_up_set_password">设置密码</string>
+	<string name="sign_up_password">密码</string>
+	<string name="sign_up_confirm_password">确认密码</string>
+	<string name="sign_up_reset">重置</string>
+	<string name="sign_up_register">注册</string>
+	<string name="sign_up_link_sign_in">已经注册过了？请登录</string>
 </resources>

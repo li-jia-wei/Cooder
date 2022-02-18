@@ -1,16 +1,17 @@
 package com.cooder.ec.launcher;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
+import com.bigkoo.convenientbanner.listener.OnPageChangeListener;
 import com.cooder.core.delegate.CooderDelegate;
-import com.cooder.core.ui.launcher.LauncherScrollHolderCreator;
-import com.cooder.core.util.log.L;
-import com.cooder.core.util.storage.CooderPreference;
-import com.cooder.core.util.storage.PreferenceKeys;
 import com.cooder.ec.R;
+import com.cooder.ec.R2;
 
 import java.util.ArrayList;
 
@@ -22,9 +23,11 @@ import java.util.ArrayList;
  * 功能介绍：首次加载滚动页
  */
 
-public class LauncherScrollDelegate extends CooderDelegate implements OnItemClickListener {
+@SuppressLint("NonConstantResourceId")
+public class LauncherScrollDelegate extends CooderDelegate implements OnItemClickListener, OnPageChangeListener {
 	
-	private ConvenientBanner<Integer> mConvenientBanner = null;
+	@BindView(R2.id.cb_scroll)
+	ConvenientBanner<Integer> mConvenientBanner = null;
 	
 	private static final ArrayList<Integer> INTEGERS = new ArrayList<>();
 	
@@ -40,14 +43,13 @@ public class LauncherScrollDelegate extends CooderDelegate implements OnItemClic
 				.setPages(new LauncherScrollHolderCreator(), INTEGERS)
 				.setPageIndicator(new int[]{R.drawable.launcher_scroll_dot_off, R.drawable.launcher_scroll_dot_on})
 				.setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL)
-				.setOnItemClickListener(this)
+				.setOnPageChangeListener(this)
 				.setCanLoop(false);
 	}
 	
 	@Override
 	public Object sayLayout() {
-		mConvenientBanner = new ConvenientBanner<>(getContext());
-		return mConvenientBanner;
+		return R.layout.delegate_launcher_scroll;
 	}
 	
 	@Override
@@ -57,12 +59,21 @@ public class LauncherScrollDelegate extends CooderDelegate implements OnItemClic
 	
 	@Override
 	public void onItemClick(int position) {
-		// 如果点击的是最后一个
-		if (position == INTEGERS.size() - 1) {
-			L.i(position);
-			CooderPreference.setAppFlag(PreferenceKeys.LAUNCHER_APP_HAS_NOT_FIRST, true);
-			// 检查用户是否已经登录
-			
-		}
+	
+	}
+	
+	@Override
+	public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+	
+	}
+	
+	@Override
+	public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+	
+	}
+	
+	@Override
+	public void onPageSelected(int index) {
+	
 	}
 }

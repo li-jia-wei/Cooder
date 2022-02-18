@@ -38,7 +38,7 @@ public class LauncherDelegate extends CooderDelegate implements ITimerListener {
 	
 	@Override
 	public Object sayLayout() {
-		return R.layout.delegate_launchar;
+		return R.layout.delegate_launcher;
 	}
 	
 	@Override
@@ -51,6 +51,7 @@ public class LauncherDelegate extends CooderDelegate implements ITimerListener {
 		
 		if (!CooderPreference.getAppFlag(PreferenceKeys.LAUNCHER_APP_HAS_NOT_FIRST)) {   // 第一次登录
 			start(new LauncherScrollDelegate(), SINGLETASK);
+			
 		} else {
 			// 检查用户是否登录
 			Toast.makeText(getContext(), "不是第一次登录", Toast.LENGTH_SHORT).show();

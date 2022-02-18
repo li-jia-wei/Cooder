@@ -2,11 +2,11 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
 	android:shape="oval">
 	<corners android:radius="5dp" />
-	<solid android:color="@color/dot_off" />
+	<solid android:color="@color/launcher_scroll_dot_off" />
 	<size
-		android:width="12dp"
-		android:height="12dp" />
+		android:width="16dp"
+		android:height="16dp" />
 	<stroke
-		android:width="2dp"
+		android:width="6dp"
 		android:color="@color/transparent" />
 </shape>
